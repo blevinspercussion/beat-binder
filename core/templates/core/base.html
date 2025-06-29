@@ -18,10 +18,10 @@
         <div class="main-layout">
             <nav class="sidebar">
                 <ul>
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="#">Search</a></li>
-                    <li><a href="#">Upload</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="{% url 'about' %}">Home</a></li>
+                    <li><a href="{% url 'scores:score_list' %}">Search</a></li>
+                    <li><a href="{% url 'scores:score_upload' %}">Upload</a></li>
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
                     <li><a href="#">Donate</a></li>
                 </ul>
             </nav>

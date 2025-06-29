@@ -1,0 +1,17 @@
+{% extends "core/base.html" %}
+{% block content %}
+  <h1>{{ score.title }}</h1>
+  <p><strong>Composer:</strong> {{ score.composer }}</p>
+  {% if score.arranger %}
+    <p><strong>Arranger:</strong> {{ score.arranger }}</p>
+  {% endif %}
+  <p><strong>Uploaded by:</strong> {{ score.uploaded_by }}</p>
+  <p><strong>Instruments:</strong> {{ score.instruments.all|join:", " }}</p>
+  <p><strong>Time Signature:</strong> {{ score.time_signature }}</p>
+  <p><strong>Difficulty:</strong> {{ score.get_difficulty_display }}</p>
+  <p>{{ score.description }}</p>
+  <p><strong>Tags:</strong> {{ score.tags.all|join:", " }}</p>
+  <p>
+    <a href="{{ score.pdf_file.url }}">Download PDF</a>
+  </p>
+{% endblock %}
