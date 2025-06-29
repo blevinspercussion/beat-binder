@@ -1,23 +1,13 @@
 <!-- core/templates/core/home.html -->
-{% extends 'core/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+{% comment %} {% extends 'core/base.html' %} {% endcomment %}
 
-{% block title %}Home - Beat Binder{% endblock %}
+{% block title %}Welcome - Beat Binder{% endblock %}
 
 {% block content %}
-<div class="content-card">
-    <h2>Welcome to Beat Binder!</h2>
-    <p>
-        This is a passion project that has been several years in the making. In that time, I have been learning web development, and I wanted to use my skills to build something that would provide value to the musician community. If you are reading this, it means that you are one of my most trusted friends and colleagues. I hand-selected each of you because I know that you are all well-rounded musicians, but you also each have a different specialty. I also know that each of you will contribute to this small community however you can.
-    </p>
-    <br>
-    <p>
-        So...what is Beat Binder? It's a way for us to come together to share compositions, drumset charts, and exercises. I have been a member of countless Facebook groups that purport to be just that, but they are hindered by sub-par contributions, abhorrent user interfaces and a severe lack of search functionality. Feel free to contribute, or take as much as you like. I've already uploaded a fair amount of material from my personal collection to get you started, and I'll keep contributing as much as I can. Feel free to use anything here for whatever purpose you choose...lessons, students, personal use, personal practice, etc.
-    </p>
-    <br>
-    <p>
-        If there is anything that you would like to see from this website as far as features, don't hesitate to let me know. I'm going to keep adding functionality as time goes on. You know how to get in touch with me. Take care, and enjoy!!
-    </p>
-    <br>
-    <p>--Adam Blevins</p>
+<div class="landing-actions">
+    <a href="{% url 'signup' %}" class="btn btn-primary landing-btn">Sign Up</a>
+    <a href="{% url 'login' %}" class="btn btn-secondary landing-btn">Log In</a>
 </div>
 {% endblock %}

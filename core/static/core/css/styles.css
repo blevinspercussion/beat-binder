@@ -213,3 +213,43 @@ header h1 a:hover {
     background: rgba(255, 255, 255, 0.3);
     color: white;
 }
+
+.landing-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    gap: 2rem;
+}
+
+.landing-btn {
+    font-size: 2rem;
+    padding: 1.2rem 3rem;
+    border-radius: 8px;
+    width: 260px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.btn-primary {
+    background: #667eea;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #5a6fd8;
+}
+
+.btn-secondary {
+    background: #bdbdbd;
+    color: #232323;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background: #a0a0a0;
+    color: #232323;
+}
