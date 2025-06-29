@@ -13,7 +13,7 @@ def signup_view(request):
             user.set_password(form.cleaned_data['password'])
             user.save()
             login(request, user)
-            return redirect('home')
+            return redirect('/about/')
     else:
         form = SignupForm()
     return render(request, 'users/signup.html', {'form': form})
@@ -23,7 +23,7 @@ def login_view(request):
         form = EmailAuthenticationForm(request, data=request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            return redirect('home')
+            return redirect('/about/')
     else:
         form = EmailAuthenticationForm()
     return render(request, 'users/login.html', {'form': form})
