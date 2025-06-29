@@ -18,9 +18,9 @@ class Score(models.Model):
         ('professional', 'Professional'),
     ]
 
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, db_index=True)
     uploaded_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='scores')
-    composer = models.CharField(max_length=255)
+    composer = models.CharField(max_length=255, db_index=True)
     arranger = models.CharField(max_length=255, blank=True, null=True)
     instruments = TaggableManager(
         verbose_name='Instruments',
