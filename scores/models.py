@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 from users.models import CustomUser
+from django.core.validators import FileExtensionValidator
 
 class InstrumentTag(TaggedItemBase):
     class Meta:
@@ -34,7 +35,7 @@ class Score(models.Model):
         blank=True,
         related_name='score_tags',
     )
-    pdf_file = models.FileField(upload_to='scores/')
+    pdf_file = models.FileField(upload_to='scores/', validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
     public = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
