@@ -209,3 +209,6 @@ htmlcov/
 .coverage.*
 coverage.xml
 *.cover 
+
+# Google Cloud Storage
+promptopia-389513-bfad6428cf53.json

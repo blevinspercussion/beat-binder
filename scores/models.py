@@ -4,6 +4,8 @@ from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 from users.models import CustomUser
 from django.core.validators import FileExtensionValidator, ValidationError
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 class InstrumentTag(TaggedItemBase):
     class Meta:

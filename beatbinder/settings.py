@@ -11,11 +11,31 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from storages.backends.gcloud import GoogleCloudStorage
 
+# Default auto field 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Base directory 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Path to downloaded key file 
+GS_CREDENTIALS_PATH = os.path.join(BASE_DIR, 'promptopia-389513-bfad6428cf53.json')
 
+# Media settings 
+# GS_LOCATION = 'scores'
+GS_BUCKET_NAME = 'beatbinder-media'
+GS_PROJECT_ID = 'promptopia-389513'
+MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Auth credentials 
+from google.oauth2 import service_account 
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(GS_CREDENTIALS_PATH)
+
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -44,6 +64,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'taggit',
+    'storages',
     'core',
     'users',
     'scores',
