@@ -11,6 +11,7 @@ def signup_view(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
+            user.username = user.email  # Ensure username is unique and matches email
             user.save()
             login(request, user)
             return redirect('/about/')
